@@ -17,9 +17,19 @@ public class ViewBookings extends JFrame {
     public ViewBookings() {
 
         setTitle("All Bookings");
-        setSize(700, 400);
+
+        setSize(750, 400);
+
         setLocationRelativeTo(null);
+
         setLayout(new BorderLayout());
+
+        JLabel heading =
+                new JLabel("Hotel Booking Records", JLabel.CENTER);
+
+        heading.setFont(new Font("Arial", Font.BOLD, 22));
+
+        add(heading, BorderLayout.NORTH);
 
         String[] columns = {
                 "ID",
@@ -33,6 +43,10 @@ public class ViewBookings extends JFrame {
         model = new DefaultTableModel(columns, 0);
 
         table = new JTable(model);
+
+        table.setRowHeight(25);
+
+        table.setFont(new Font("Arial", Font.PLAIN, 14));
 
         JScrollPane pane = new JScrollPane(table);
 
@@ -73,8 +87,10 @@ public class ViewBookings extends JFrame {
 
         } catch (Exception e) {
 
-            JOptionPane.showMessageDialog(this,
-                    "Error loading bookings");
+            JOptionPane.showMessageDialog(
+                    this,
+                    "Error loading bookings"
+            );
         }
     }
 }
